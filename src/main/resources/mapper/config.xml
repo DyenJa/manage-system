@@ -1,0 +1,728 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.odm.managesystem.dao.ConfigMapper">
+
+
+
+    <select id="getSubTypes" parameterType="String"  resultType="String">
+		select cc_name from clothes_class where userid=#{cc_parent_class_name}
+	</select>
+
+    <insert id="createNewTypes" parameterType="map" >
+        insert into clothes_class (cc_name,cc_parent_class_name) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.cc_name}, #{item.cc_parent_class_name})
+        </foreach>
+    </insert>
+
+    <delete id="deleteTypes" parameterType="java.util.List">
+        delete from clothes_class where cc_name in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+
+    <select id="getProductGroups" parameterType="String"  resultType="String">
+		select * from product_group
+	</select>
+
+    <insert id="createNewProductGroup" parameterType="java.util.List" >
+        insert into product_group (group_name) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deleteProductGroup" parameterType="java.util.List">
+        delete from product_group where group_name in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getPlackets" parameterType="String"  resultType="String">
+		select * from placket
+	</select>
+
+    <insert id="createNewPlacket" parameterType="java.util.List" >
+        insert into placket ( placket_name) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deletePlacket" parameterType="java.util.List">
+        delete from placket where placket_name in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getLengths" parameterType="String"  resultType="String">
+		select * from length
+	</select>
+
+    <insert id="createNewLength" parameterType="java.util.List" >
+        insert into length (length) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deleteLength" parameterType="java.util.List">
+        delete from length where length in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getCollars" parameterType="String"  resultType="String">
+		select * from collar
+	</select>
+
+    <insert id="createNewCollar" parameterType="java.util.List" >
+        insert into collar ( collar) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deleteCollar" parameterType="java.util.List">
+        delete from collar where collar in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getDecorations" parameterType="String"  resultType="String">
+		select * from decoration
+	</select>
+
+    <insert id="createNewDecoration" parameterType="java.util.List" >
+        insert into decoration ( decoration) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deleteDecoration" parameterType="java.util.List">
+        delete from decoration where decoration in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getDetachParts" parameterType="String"  resultType="String">
+		select * from detach_part
+	</select>
+
+    <insert id="createNewDetachPart" parameterType="java.util.List" >
+        insert into detach_part ( detach_part) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deleteDetachPart" parameterType="java.util.List">
+        delete from detach_part where detach_part in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getFabricTypes" parameterType="String"  resultType="String">
+		select * from fabric_type
+	</select>
+
+    <insert id="createNewFabricType" parameterType="java.util.List" >
+        insert into fabric_type ( fabric_type) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deleteFabricType" parameterType="java.util.List">
+        delete from fabric_type where fabric_type in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+    <select id="getFeatures" parameterType="String"  resultType="String">
+		select * from feature
+	</select>
+
+    <insert id="createNewFeature" parameterType="java.util.List" >
+        insert into feature (feature ) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deleteFeature" parameterType="java.util.List">
+        delete from feature where feature in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getMaterials" parameterType="String"  resultType="String">
+		select * from material
+	</select>
+
+    <insert id="createNewMaterial" parameterType="java.util.List" >
+        insert into material ( material) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deleteMaterial" parameterType="java.util.List">
+        delete from material where material in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getPatternTypes" parameterType="String"  resultType="String">
+		select * from pattern_type
+	</select>
+
+    <insert id="createNewPatternType" parameterType="java.util.List" >
+        insert into pattern_type (pattern_type ) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deletePatternType" parameterType="java.util.List">
+        delete from pattern_type where pattern_type in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getProducePlaces" parameterType="String"  resultType="String">
+		select * from produce_place
+	</select>
+
+    <insert id="createNewProducePlace" parameterType="java.util.List" >
+        insert into produce_place (produce_place ) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deleteProducePlace" parameterType="java.util.List">
+        delete from produce_place where produce_place in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getProcessCrafts" parameterType="String"  resultType="String">
+		select * from process_craft
+	</select>
+
+    <insert id="createNewProcessCraft" parameterType="java.util.List" >
+        insert into process_craft ( process_craft) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deleteProcessCraft" parameterType="java.util.List">
+        delete from process_craft where process_craft in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getSurfaceMaterials" parameterType="String"  resultType="String">
+		select * from surface_material
+	</select>
+
+    <insert id="createNewSurfaceMaterial" parameterType="java.util.List" >
+        insert into surface_material (surface_material ) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deleteSurfaceMaterial" parameterType="java.util.List">
+        delete from surface_material where surface_material in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getSleeveLengths" parameterType="String"  resultType="String">
+		select * from sleeve_length
+	</select>
+
+    <insert id="createNewSleeveLength" parameterType="java.util.List" >
+        insert into sleeve_length ( sleeve_length) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deleteSleeveLength" parameterType="java.util.List">
+        delete from sleeve_length where sleeve_length in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getSleeveTypes" parameterType="String"  resultType="String">
+		select * from sleeve_type
+	</select>
+
+    <insert id="createNewSleeveType" parameterType="java.util.List" >
+        insert into sleeve_type ( sleeve_type) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deleteSleeveType" parameterType="java.util.List">
+        delete from sleeve_type where sleeve_type in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getStyles" parameterType="String"  resultType="String">
+		select * from style
+	</select>
+
+    <insert id="createStyle" parameterType="java.util.List" >
+        insert into style (style ) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deleteStyle" parameterType="java.util.List">
+        delete from style where style in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getSupplyTypes" parameterType="String"  resultType="String">
+		select * from supply_type
+	</select>
+
+    <insert id="createNewSupplyType" parameterType="java.util.List" >
+        insert into supply_type ( supply_type) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deleteSupplyType" parameterType="java.util.List">
+        delete from supply_type where supply_type in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getCrafts" parameterType="String"  resultType="String">
+		select * from craft
+	</select>
+
+    <insert id="createNewCraft" parameterType="java.util.List" >
+        insert into craft ( craft) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deleteCraft" parameterType="java.util.List">
+        delete from craft where craft in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getThickness" parameterType="String"  resultType="String">
+		select * from thickness
+	</select>
+
+    <insert id="createNewThickness" parameterType="java.util.List" >
+        insert into thickness ( thickness) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deleteThickness" parameterType="java.util.List">
+        delete from thickness where thickness in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getProductTypes" parameterType="String"  resultType="String">
+		select * from product_type
+	</select>
+
+    <insert id="createProductType" parameterType="java.util.List" >
+        insert into product_type (product_type ) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deleteProductType" parameterType="java.util.List">
+        delete from product_type where product_type in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getColors" parameterType="String"  resultType="String">
+		select * from color
+	</select>
+
+    <insert id="createColor" parameterType="java.util.List" >
+        insert into color ( color) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deleteColor" parameterType="java.util.List">
+        delete from color where color in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getDressTypes" parameterType="String"  resultType="String">
+		select * from dress_type
+	</select>
+
+    <insert id="createDressType" parameterType="java.util.List" >
+        insert into dress_type (dress_type ) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deleteDressType" parameterType="java.util.List">
+        delete from dress_type where dress_type in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getFengges" parameterType="String"  resultType="String">
+		select * from fengge
+	</select>
+
+    <insert id="createNewfengge" parameterType="java.util.List" >
+        insert into fengge (fengge ) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deleteFengge" parameterType="java.util.List">
+        delete from fengge where fengge in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getDressWaistlines" parameterType="String"  resultType="String">
+		select * from dress_waistline
+	</select>
+
+    <insert id="createNewDressWaistline" parameterType="java.util.List" >
+        insert into dress_waistline ( dress_waistline) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deleteDressWaistline" parameterType="java.util.List">
+        delete from dress_waistline where dress_waistline in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getFashionElements" parameterType="String"  resultType="String">
+		select * from fashion_elements
+	</select>
+
+    <insert id="createNewFashionElements" parameterType="java.util.List" >
+        insert into fashion_elements ( fashion_elements) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deleteFashionElements" parameterType="java.util.List">
+        delete from fashion_elements where fashion_elements in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getSmears" parameterType="String"  resultType="String">
+		select * from smear
+	</select>
+
+    <insert id="createNewSmear" parameterType="java.util.List" >
+        insert into smear ( smear) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deleteSmear" parameterType="java.util.List">
+        delete from smear where smear in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getPlateTypes" parameterType="String"  resultType="String">
+		select * from plate_type
+	</select>
+
+    <insert id="createNewPlateType" parameterType="java.util.List" >
+        insert into plate_type (plate_type ) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deletePlateType" parameterType="java.util.List">
+        delete from plate_type where plate_type in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getFabricWeights" parameterType="String"  resultType="String">
+		select * from fabric_weight
+	</select>
+
+    <insert id="createNewFabricWeight" parameterType="java.util.List" >
+        insert into fabric_weight ( fabric_weight) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deleteFabricWeight" parameterType="java.util.List">
+        delete from fabric_weight where fabric_weight in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getPrintingMethods" parameterType="String"  resultType="String">
+		select * from printing_method
+	</select>
+
+    <insert id="createNewPrintingMethod" parameterType="java.util.List" >
+        insert into printing_method (printing_method ) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deletePrintingMethod" parameterType="java.util.List">
+        delete from printing_method where printing_method in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getSizes" parameterType="String"  resultType="String">
+		select * from size
+	</select>
+
+    <insert id="createNewSize" parameterType="java.util.List" >
+        insert into size ( size) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deleteSize" parameterType="java.util.List">
+        delete from size where size in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getPantStyles" parameterType="String"  resultType="String">
+		select * from pant_style
+	</select>
+
+    <insert id="createNewPantStyle" parameterType="java.util.List" >
+        insert into pant_style (pant_style ) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deletePantStyle" parameterType="java.util.List">
+        delete from pant_style where pant_style in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getWaistTypes" parameterType="String"  resultType="String">
+		select * from waist_type
+	</select>
+
+    <insert id="createNewWaistType" parameterType="java.util.List" >
+        insert into waist_type ( waist_type) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deleteWaistType" parameterType="java.util.List">
+        delete from waist_type where waist_type in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getSleeveStyles" parameterType="String"  resultType="String">
+		select * from sleeve_style
+	</select>
+
+    <insert id="createSleeveStyle" parameterType="java.util.List" >
+        insert into sleeve_style (sleeve_style ) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deleteSleeveStyle" parameterType="java.util.List">
+        delete from sleeve_style where sleeve_style in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getUpperClotheTypes" parameterType="String"  resultType="String">
+		select * from upper_clothe_type
+	</select>
+
+    <insert id="createNewUpperClotheType" parameterType="java.util.List" >
+        insert into upper_clothe_type ( upper_clothe_type) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deleteUpperClotheType" parameterType="java.util.List">
+        delete from upper_clothe_type where upper_clothe_type in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getCoatTypes" parameterType="String"  resultType="String">
+		select * from coat_type
+	</select>
+
+    <insert id="createNewCoatType" parameterType="java.util.List" >
+        insert into coat_type (coat_type ) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deleteCoatType" parameterType="java.util.List">
+        delete from coat_type where coat_type in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getFrontStyles" parameterType="String"  resultType="String">
+		select * from front_style
+	</select>
+
+    <insert id="createNewFrontStyle" parameterType="java.util.List" >
+        insert into front_style ( front_style) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deleteFrontStyle" parameterType="java.util.List">
+        delete from front_style where front_style in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getApplys" parameterType="String"  resultType="String">
+		select * from apply
+	</select>
+
+    <insert id="createNewApply" parameterType="java.util.List" >
+        insert into apply ( apply) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deleteApply" parameterType="java.util.List">
+        delete from apply where apply in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getQunLengths" parameterType="String"  resultType="String">
+		select * from qun_length
+	</select>
+
+    <insert id="createNewQunLength" parameterType="java.util.List" >
+        insert into qun_length ( qun_length) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deleteQunLength" parameterType="java.util.List">
+        delete from qun_length where qun_length in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getDesigns" parameterType="String"  resultType="String">
+		select * from design
+	</select>
+
+    <insert id="createNewDesign" parameterType="java.util.List" >
+        insert into design (design) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deleteDesign" parameterType="java.util.List">
+        delete from design where design in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+
+</mapper>

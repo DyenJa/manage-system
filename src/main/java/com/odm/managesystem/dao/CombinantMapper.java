@@ -1,4 +1,4 @@
 package com.odm.managesystem.dao;
 
-public class TestDao {
+public interface CombinantMapper {
 }
