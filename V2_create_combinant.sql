@@ -7,6 +7,7 @@ create table combinant(
    sid int not null,					#特殊服务ID
    lid int not null,					#物流信息ID
    tid int not null,					#交易信息ID
+   delete int defalut 0,                #是否删除
     primary key(id)
 ) ENGINE=InnoDB  AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 

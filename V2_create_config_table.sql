@@ -7,14 +7,6 @@ create table clothes_class(
     primary key(cc_name,cc_parent_class_name)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `clothes_picture`;
-create table clothes_picture(
-    c_id varchar(128) not null,					#图片中衣服的ID
-    picture_number int not null,				#图片的编号，每个衣服都有一个编号序列从1，2,3.....
-    picture_path varchar(2048) not null,
-    primary key(c_id,picture_number)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 #产品分组
 DROP TABLE IF EXISTS `product_group`;
 create table product_group(
