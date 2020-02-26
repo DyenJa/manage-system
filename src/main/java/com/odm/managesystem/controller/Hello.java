@@ -9,21 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class Hello {
-    @Autowired
-    private InitPageService ips;
 
-    
+
+
     @RequestMapping("/index")
     public String hello(){
 
-        System.out.println("InitJacketPage...");
-        try {
-            JSONObject j=ips.getJacketPageElementsInJson();
-            System.out.println(j.toJSONString());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        System.out.println("test");
         return "The ODM manage system project starts!";
     }
 }
