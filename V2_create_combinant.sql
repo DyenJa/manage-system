@@ -17,5 +17,5 @@ create table product_desc(
    id int not null AUTO_INCREMENT,		#自增主键
    cid int not null,					#产品的ID，来自combinant的主键
    picurl varchar(256),
-    primary key(id,picurl)
+    primary key(id)
 ) ENGINE=InnoDB  AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
