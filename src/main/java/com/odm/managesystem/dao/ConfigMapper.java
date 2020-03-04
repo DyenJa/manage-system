@@ -104,12 +104,6 @@ public interface ConfigMapper {
 
     public boolean deleteProcessCraft (List<String>  process_craft) throws Exception;
 
-    //#表面材质      surface_material
-    public List<String> getSurfaceMaterials () throws Exception;
-
-    public boolean createNewSurfaceMaterial (List<String> surface_material) throws Exception;
-
-    public boolean deleteSurfaceMaterial (List<String>  surface_material) throws Exception;
 
     //#袖长      sleeve_length
     public List<String> getSleeveLengths () throws Exception;

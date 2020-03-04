@@ -238,23 +238,6 @@
         </foreach>
     </delete>
 
-    <select id="getSurfaceMaterials" parameterType="String"  resultType="String">
-		select * from surface_material
-	</select>
-
-    <insert id="createNewSurfaceMaterial" parameterType="java.util.List" >
-        insert into surface_material (surface_material ) values
-        <foreach collection="list" item="item" index="index" separator=",">
-            (#{item})
-        </foreach>
-    </insert>
-
-    <delete id="deleteSurfaceMaterial" parameterType="java.util.List">
-        delete from surface_material where surface_material in
-        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
-            #{item}
-        </foreach>
-    </delete>
 
     <select id="getSleeveLengths" parameterType="String"  resultType="String">
 		select * from sleeve_length

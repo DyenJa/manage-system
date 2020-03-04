@@ -12,18 +12,19 @@ import org.springframework.web.bind.annotation.RestController;
 public class JacketHandler {
 
     @Autowired
-    private InitPageService ips;
+    private InitPageService initPageService;
 
     @RequestMapping("/InitJacketPage")
     @ResponseBody
     public String InitJacketPage(){
         System.out.println("InitJacketPage...");
+        JSONObject attributeInJson=null;
         try {
-            JSONObject j=ips.getJacketPageElementsInJson();
-            System.out.println(j.toJSONString());
+            attributeInJson=initPageService.getJacketPageElementsInJson();
+            System.out.println(attributeInJson.toJSONString());
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "InitJacketPage!";
+        return attributeInJson.toJSONString();
     }
 }
