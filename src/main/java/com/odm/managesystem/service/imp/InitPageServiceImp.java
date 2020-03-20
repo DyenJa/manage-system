@@ -71,7 +71,7 @@ public class InitPageServiceImp implements InitPageService {
                     a.setAttribute("产品分组");
                     a.setName(attributes[i]);
                     a.setChoices(cm.getProductGroups());
-                    a.setType("write_multiple");
+                    a.setType("select");
                     break;
                 case "brand":
                     a.setAttribute("品牌");
