@@ -1,6 +1,7 @@
 package com.odm.managesystem.service.imp;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.odm.managesystem.dao.ConfigMapper;
 import com.odm.managesystem.service.InitPageService;
@@ -10,6 +11,7 @@ import util.PageElement;
 
 import java.lang.reflect.Field;
 import java.util.LinkedList;
+import java.util.List;
 
 
 @Service
@@ -47,6 +49,7 @@ public class InitPageServiceImp implements InitPageService {
             return object;
 
         PageElement a;
+        List<PageElement> l=new LinkedList<>();
         for (int i = 0; i < attributes.length; i++) {
             a=new PageElement();
             switch (attributes[i]){
@@ -56,13 +59,15 @@ public class InitPageServiceImp implements InitPageService {
                     a.setChoices(new LinkedList<>());
                     a.setType("write");
                     break;
-                case "key_word":
+                case "keyWord1":
+                case "keyWord2":
+                case "keyWord3":
                     a.setAttribute("产品关键词");
                     a.setName(attributes[i]);
                     a.setChoices(new LinkedList<>());
                     a.setType("write_multiple");
                     break;
-                case "product_group":
+                case "productGroup":
                     a.setAttribute("产品分组");
                     a.setName(attributes[i]);
                     a.setChoices(cm.getProductGroups());
@@ -98,13 +103,13 @@ public class InitPageServiceImp implements InitPageService {
                     a.setChoices(cm.getDecorations());
                     a.setType("checkbox");
                     break;
-                case "detach_part":
+                case "detachPart":
                     a.setAttribute("可拆卸部位");
                     a.setName(attributes[i]);
                     a.setChoices(cm.getDetachParts());
                     a.setType("checkbox");
                     break;
-                case "fabric_type":
+                case "fabricType":
                     a.setAttribute("面料类型");
                     a.setName(attributes[i]);
                     a.setChoices(cm.getFabricTypes());
@@ -116,7 +121,7 @@ public class InitPageServiceImp implements InitPageService {
                     a.setChoices(cm.getFeatures());
                     a.setType("checkbox");
                     break;
-                case "padding_material":
+                case "paddingMaterial":
                     a.setAttribute("填充物材质");
                     a.setName(attributes[i]);
                     a.setChoices(cm.getMaterials());
@@ -134,13 +139,13 @@ public class InitPageServiceImp implements InitPageService {
                     a.setChoices(new LinkedList<>());
                     a.setType("write");
                     break;
-                case "pattern_type":
+                case "patternType":
                     a.setAttribute("图案类型");
                     a.setName(attributes[i]);
                     a.setChoices(cm.getPatternTypes());
                     a.setType("select");
                     break;
-                case "produce_place":
+                case "producePlace":
                     a.setAttribute("原产地");
                     a.setName(attributes[i]);
                     a.setChoices(cm.getProducePlaces());
@@ -158,19 +163,19 @@ public class InitPageServiceImp implements InitPageService {
                     a.setChoices(new LinkedList<>());
                     a.setType("select");
                     break;
-                case "surface_material":
+                case "surfaceMaterial":
                     a.setAttribute("表面材质");
                     a.setName(attributes[i]);
                     a.setChoices(cm.getMaterials());
                     a.setType("select");
                     break;
-                case "sleeve_length":
+                case "sleeveLength":
                     a.setAttribute("袖长");
                     a.setName(attributes[i]);
                     a.setChoices(cm.getSleeveLengths());
                     a.setType("select");
                     break;
-                case "sleeve_type":
+                case "sleeveType":
                     a.setAttribute("袖型");
                     a.setName(attributes[i]);
                     a.setChoices(cm.getSleeveStyles());
@@ -182,7 +187,7 @@ public class InitPageServiceImp implements InitPageService {
                     a.setChoices(cm.getStyles());
                     a.setType("select");
                     break;
-                case "supply_type":
+                case "supplyType":
                     a.setAttribute("供应类型");
                     a.setName(attributes[i]);
                     a.setChoices(cm.getSupplyTypes());
@@ -206,13 +211,13 @@ public class InitPageServiceImp implements InitPageService {
                     a.setChoices(new LinkedList<>());
                     a.setType("write");
                     break;
-                case "product_type":
+                case "productType":
                     a.setAttribute("产品类型");
                     a.setName(attributes[i]);
                     a.setChoices(cm.getProductTypes());
                     a.setType("select");
                     break;
-                case "customize_feature":
+                case "customizeFeature":
                     a.setAttribute("自定义属性");
                     a.setName(attributes[i]);
                     a.setChoices(new LinkedList<>());
@@ -232,8 +237,10 @@ public class InitPageServiceImp implements InitPageService {
                     break;
 
             }
-            object.put("attributes",JSON.toJSONString(a));
+            System.out.println(JSON.toJSONString(a));
+            l.add(a);
         }
+        object.put("attributes", JSON.toJSONString(l));
         return object;
     }
 }
