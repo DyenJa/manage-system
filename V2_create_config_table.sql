@@ -1,24 +1,24 @@
 use  csv;
 
-DROP TABLE IF EXISTS `clothes_class`;
-create table clothes_class(
-    cc_name varchar(256) not null,			#服装类型名
-    cc_parent_class_name varchar(256) not null,	#父级类型名，比如女夹克的父级类型是女装，半身裙的父类型是裙子
-    primary key(cc_name,cc_parent_class_name)
+DROP TABLE IF EXISTS `clothesClass`;
+create table clothesClass(
+    ccName varchar(256) not null,			#服装类型名
+    ccParentClassName varchar(256) not null,	#父级类型名，比如女夹克的父级类型是女装，半身裙的父类型是裙子
+    primary key(ccName,ccParentClassName)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #产品分组
-DROP TABLE IF EXISTS `product_group`;
-create table product_group(
-	group_name varchar(256),
-    primary key(group_name)
+DROP TABLE IF EXISTS `productGroup`;
+create table productGroup(
+	groupName varchar(256),
+    primary key(groupName)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #门襟
 DROP TABLE IF EXISTS `placket`;
 create table placket(
-	placket_name varchar(256),
-    primary key(placket_name)
+	placketName varchar(256),
+    primary key(placketName)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #长度
@@ -43,17 +43,17 @@ create table decoration(
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #可拆卸部位
-DROP TABLE IF EXISTS `detach_part`;
-create table detach_part(
-	detach_part varchar(256),
-    primary key(detach_part)
+DROP TABLE IF EXISTS `detachPart`;
+create table detachPart(
+	detachPart varchar(256),
+    primary key(detachPart)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #面料类型
-DROP TABLE IF EXISTS `fabric_type`;
-create table fabric_type(
-	fabric_type varchar(256),
-    primary key(fabric_type)
+DROP TABLE IF EXISTS `fabricType`;
+create table fabricType(
+	fabricType varchar(256),
+    primary key(fabricType)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #产品特性
@@ -72,45 +72,45 @@ create table material(
 
 
 #图案类型
-DROP TABLE IF EXISTS `pattern_type`;
-create table pattern_type(
-	pattern_type varchar(256),
-    primary key(pattern_type)
+DROP TABLE IF EXISTS `patternType`;
+create table patternType(
+	patternType varchar(256),
+    primary key(patternType)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #原产地
-DROP TABLE IF EXISTS `produce_place`;
-create table produce_place(
-	produce_place varchar(256),
-    primary key(produce_place)
+DROP TABLE IF EXISTS `producePlace`;
+create table producePlace(
+	producePlace varchar(256),
+    primary key(producePlace)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #加工工艺
-DROP TABLE IF EXISTS `process_craft`;
-create table process_craft(
-	process_craft varchar(256),
-    primary key(process_craft)
+DROP TABLE IF EXISTS `processCraft`;
+create table processCraft(
+	processCraft varchar(256),
+    primary key(processCraft)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #表面材质
-DROP TABLE IF EXISTS `surface_material`;
-create table surface_material(
-	surface_material varchar(256),
-    primary key(surface_material)
+DROP TABLE IF EXISTS `surfaceMaterial`;
+create table surfaceMaterial(
+	surfaceMaterial varchar(256),
+    primary key(surfaceMaterial)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #袖长
-DROP TABLE IF EXISTS `sleeve_length`;
-create table sleeve_length(
-	sleeve_length varchar(256),
-    primary key(sleeve_length)
+DROP TABLE IF EXISTS `sleeveLength`;
+create table sleeveLength(
+	sleeveLength varchar(256),
+    primary key(sleeveLength)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #袖型
-DROP TABLE IF EXISTS `sleeve_type`;
-create table sleeve_type(
-	sleeve_type varchar(256),
-    primary key(sleeve_type)
+DROP TABLE IF EXISTS `sleeveType`;
+create table sleeveType(
+	sleeveType varchar(256),
+    primary key(sleeveType)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #款式
@@ -121,10 +121,10 @@ create table style(
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #供应类型
-DROP TABLE IF EXISTS `supply_type`;
-create table supply_type(
-	supply_type varchar(256),
-    primary key(supply_type)
+DROP TABLE IF EXISTS `supplyType`;
+create table supplyType(
+	supplyType varchar(256),
+    primary key(supplyType)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #工艺
@@ -142,10 +142,10 @@ create table thickness(
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #产品类型
-DROP TABLE IF EXISTS `product_type`;
-create table product_type(
-	product_type varchar(256),
-    primary key(product_type)
+DROP TABLE IF EXISTS `productType`;
+create table productType(
+	productType varchar(256),
+    primary key(productType)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #颜色
@@ -156,10 +156,10 @@ create table color(
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #裙型
-DROP TABLE IF EXISTS `dress_type`;
-create table dress_type(
-	dress_type varchar(256),
-    primary key(dress_type)
+DROP TABLE IF EXISTS `dressType`;
+create table dressType(
+	dressType varchar(256),
+    primary key(dressType)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #风格
@@ -170,17 +170,17 @@ create table fengge(
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #裙腰线
-DROP TABLE IF EXISTS `dress_waistline`;
-create table dress_waistline(
-	dress_waistline varchar(256),
-    primary key(dress_waistline)
+DROP TABLE IF EXISTS `dressWaistline`;
+create table dressWaistline(
+	dressWaistline varchar(256),
+    primary key(dressWaistline)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #流行元素
-DROP TABLE IF EXISTS `fashion_elements`;
-create table fashion_elements(
-	fashion_elements varchar(256),
-    primary key(fashion_elements)
+DROP TABLE IF EXISTS `fashionElements`;
+create table fashionElements(
+	fashionElements varchar(256),
+    primary key(fashionElements)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #拖尾
@@ -191,24 +191,24 @@ create table smear(
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #板型
-DROP TABLE IF EXISTS `plate_type`;
-create table plate_type(
-	plate_type varchar(20),
-    primary key(plate_type)
+DROP TABLE IF EXISTS `plateType`;
+create table plateType(
+	plateType varchar(20),
+    primary key(plateType)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #面料克重
-DROP TABLE IF EXISTS `fabric_weight`;
-create table fabric_weight(
-	fabric_weight varchar(30),
-    primary key(fabric_weight)
+DROP TABLE IF EXISTS `fabricWeight`;
+create table fabricWeight(
+	fabricWeight varchar(30),
+    primary key(fabricWeight)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #印花方法
-DROP TABLE IF EXISTS `printing_method`;
-create table printing_method(
-	printing_method varchar(256),
-    primary key(printing_method)
+DROP TABLE IF EXISTS `printingMethod`;
+create table printingMethod(
+	printingMethod varchar(256),
+    primary key(printingMethod)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #尺码
@@ -219,46 +219,46 @@ create table size(
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #裤子款式
-DROP TABLE IF EXISTS `pant_style`;
-create table pant_style(
-	pant_style varchar(30),
-    primary key(pant_style)
+DROP TABLE IF EXISTS `pantStyle`;
+create table pantStyle(
+	pantStyle varchar(30),
+    primary key(pantStyle)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #腰型
-DROP TABLE IF EXISTS `waist_type`;
-create table waist_type(
-	waist_type varchar(20),
-    primary key(waist_type)
+DROP TABLE IF EXISTS `waistType`;
+create table waistType(
+	waistType varchar(20),
+    primary key(waistType)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #袖子款式
-DROP TABLE IF EXISTS `sleeve_style`;
-create table sleeve_style(
-	sleeve_style varchar(20),
-    primary key(sleeve_style)
+DROP TABLE IF EXISTS `sleeveStyle`;
+create table sleeveStyle(
+	sleeveStyle varchar(20),
+    primary key(sleeveStyle)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #上衣类型
-DROP TABLE IF EXISTS `upper_clothe_type`;
-create table upper_clothe_type(
-	upper_clothe_type varchar(20),
-    primary key(upper_clothe_type)
+DROP TABLE IF EXISTS `upperClotheType`;
+create table upperClotheType(
+	upperClotheType varchar(20),
+    primary key(upperClotheType)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 #外套类型
-DROP TABLE IF EXISTS `coat_type`;
-create table coat_type(
-	coat_type varchar(128),
-    primary key(coat_type)
+DROP TABLE IF EXISTS `coatType`;
+create table coatType(
+	coatType varchar(128),
+    primary key(coatType)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #前幅类型
-DROP TABLE IF EXISTS `front_style`;
-create table front_style(
-	front_style varchar(30),
-    primary key(front_style)
+DROP TABLE IF EXISTS `frontStyle`;
+create table frontStyle(
+	frontStyle varchar(30),
+    primary key(frontStyle)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -271,10 +271,10 @@ create table apply(
 
 
 #裙长
-DROP TABLE IF EXISTS `qun_length`;
-create table qun_length(
-	qun_length varchar(128),
-    primary key(qun_length)
+DROP TABLE IF EXISTS `qunLength`;
+create table qunLength(
+	qunLength varchar(128),
+    primary key(qunLength)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
