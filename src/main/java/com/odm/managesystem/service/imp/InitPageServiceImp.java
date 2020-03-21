@@ -1,7 +1,6 @@
 package com.odm.managesystem.service.imp;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.odm.managesystem.dao.ConfigMapper;
 import com.odm.managesystem.service.InitPageService;
@@ -25,6 +24,26 @@ public class InitPageServiceImp implements InitPageService {
     public JSONObject getJacketPageElementsInJson() throws Exception {
         String [] arrtibutes=null;
         String path = "com.odm.managesystem.entity.table.PoJacket";
+        try {
+            Class clazz = Class.forName(path);
+
+            Field[] fields = clazz.getDeclaredFields();
+            arrtibutes=new String [fields.length-2];
+            for (int i = 2; i < fields.length; i++) {
+                arrtibutes[i-2]=fields[i].getName();
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        JSONObject object = init(arrtibutes);
+
+        return object;
+    }
+
+    @Override
+    public JSONObject getPageElementsInJson(String classification) throws Exception {
+        String [] arrtibutes=null;
+        String path = "com.odm.managesystem.entity.table.Po"+classification;
         try {
             Class clazz = Class.forName(path);
 

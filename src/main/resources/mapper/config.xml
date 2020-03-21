@@ -132,18 +132,18 @@
     </delete>
 
     <select id="getFabricTypes" parameterType="String"  resultType="String">
-		select * from fabric_type
+		select * from fabricType
 	</select>
 
     <insert id="createNewFabricType" parameterType="java.util.List" >
-        insert into fabric_type ( fabric_type) values
+        insert into fabricType ( fabricType) values
         <foreach collection="list" item="item" index="index" separator=",">
             (#{item})
         </foreach>
     </insert>
 
     <delete id="deleteFabricType" parameterType="java.util.List">
-        delete from fabric_type where fabric_type in
+        delete from fabricType where fabricType in
         <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
             #{item}
         </foreach>
@@ -185,18 +185,18 @@
     </delete>
 
     <select id="getPatternTypes" parameterType="String"  resultType="String">
-		select * from pattern_type
+		select * from patternType
 	</select>
 
     <insert id="createNewPatternType" parameterType="java.util.List" >
-        insert into pattern_type (pattern_type ) values
+        insert into patternType (patternType ) values
         <foreach collection="list" item="item" index="index" separator=",">
             (#{item})
         </foreach>
     </insert>
 
     <delete id="deletePatternType" parameterType="java.util.List">
-        delete from pattern_type where pattern_type in
+        delete from patternType where patternType in
         <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
             #{item}
         </foreach>
@@ -258,18 +258,18 @@
     </delete>
 
     <select id="getSleeveTypes" parameterType="String"  resultType="String">
-		select * from sleeve_type
+		select * from sleeveType
 	</select>
 
     <insert id="createNewSleeveType" parameterType="java.util.List" >
-        insert into sleeve_type ( sleeve_type) values
+        insert into sleeveType ( sleeveType) values
         <foreach collection="list" item="item" index="index" separator=",">
             (#{item})
         </foreach>
     </insert>
 
     <delete id="deleteSleeveType" parameterType="java.util.List">
-        delete from sleeve_type where sleeve_type in
+        delete from sleeveType where sleeveType in
         <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
             #{item}
         </foreach>
@@ -294,18 +294,18 @@
     </delete>
 
     <select id="getSupplyTypes" parameterType="String"  resultType="String">
-		select * from supply_type
+		select * from supplyType
 	</select>
 
     <insert id="createNewSupplyType" parameterType="java.util.List" >
-        insert into supply_type ( supply_type) values
+        insert into supplyType ( supplyType) values
         <foreach collection="list" item="item" index="index" separator=",">
             (#{item})
         </foreach>
     </insert>
 
     <delete id="deleteSupplyType" parameterType="java.util.List">
-        delete from supply_type where supply_type in
+        delete from supplyType where supplyType in
         <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
             #{item}
         </foreach>
@@ -348,18 +348,18 @@
     </delete>
 
     <select id="getProductTypes" parameterType="String"  resultType="String">
-		select * from product_type
+		select * from productType
 	</select>
 
     <insert id="createProductType" parameterType="java.util.List" >
-        insert into product_type (product_type ) values
+        insert into productType (productType ) values
         <foreach collection="list" item="item" index="index" separator=",">
             (#{item})
         </foreach>
     </insert>
 
     <delete id="deleteProductType" parameterType="java.util.List">
-        delete from product_type where product_type in
+        delete from productType where productType in
         <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
             #{item}
         </foreach>
@@ -384,18 +384,18 @@
     </delete>
 
     <select id="getDressTypes" parameterType="String"  resultType="String">
-		select * from dress_type
+		select * from dressType
 	</select>
 
     <insert id="createDressType" parameterType="java.util.List" >
-        insert into dress_type (dress_type ) values
+        insert into dressType (dressType ) values
         <foreach collection="list" item="item" index="index" separator=",">
             (#{item})
         </foreach>
     </insert>
 
     <delete id="deleteDressType" parameterType="java.util.List">
-        delete from dress_type where dress_type in
+        delete from dressType where dressType in
         <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
             #{item}
         </foreach>
@@ -474,18 +474,18 @@
     </delete>
 
     <select id="getPlateTypes" parameterType="String"  resultType="String">
-		select * from plate_type
+		select * from plateType
 	</select>
 
     <insert id="createNewPlateType" parameterType="java.util.List" >
-        insert into plate_type (plate_type ) values
+        insert into plateType (plateType ) values
         <foreach collection="list" item="item" index="index" separator=",">
             (#{item})
         </foreach>
     </insert>
 
     <delete id="deletePlateType" parameterType="java.util.List">
-        delete from plate_type where plate_type in
+        delete from plateType where plateType in
         <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
             #{item}
         </foreach>
